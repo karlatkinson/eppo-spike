@@ -1,26 +1,26 @@
 namespace eppo_spike;
 
 using DotNetEnv;
-using eppo_sdk;
+using Xunit.Abstractions;
 
 public class EppoTests
 {
-    [Fact]
-    public void CanCheckFeature()
+    private readonly Features _eppoClient;
+
+    public EppoTests(ITestOutputHelper logger)
     {
         Env.TraversePath().Load();
         var sdkKey = Env.GetString("EPPO_SDK_KEY");
+        _eppoClient = new Features(sdkKey, logger.ToLoggerFactory());
+    }
+    
+    [Fact]
+    public void CanCheckFeature()
+    {
         var featureFlag = Env.GetString("EPPO_FEATURE_FLAG");
-        var eppoClient = EppoClient.Init(new EppoClientConfig(sdkKey, null));
 
-        var result = eppoClient.GetBooleanAssignment(featureFlag, FakeSubject.Id, FakeSubject.Attributes, false);
+        var result = _eppoClient.IsEnabled(featureFlag);
         
         Assert.True(result);
     }
-}
-
-public static class FakeSubject
-{
-    public const string Id = "DummyUser";
-    public static Dictionary<string, object> Attributes = new Dictionary<string, object>();
 }

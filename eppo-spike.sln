@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eppo-spike", "eppo-spike.csproj", "{5263FF38-8015-05B5-8B39-0090BA34B4BD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5263FF38-8015-05B5-8B39-0090BA34B4BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5263FF38-8015-05B5-8B39-0090BA34B4BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5263FF38-8015-05B5-8B39-0090BA34B4BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5263FF38-8015-05B5-8B39-0090BA34B4BD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9C8B29F3-C184-476F-B3A3-C190F2616D0B}
+	EndGlobalSection
+EndGlobal

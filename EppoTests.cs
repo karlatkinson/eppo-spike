@@ -23,4 +23,12 @@ public class EppoTests
         
         Assert.True(result);
     }
+    
+    [Fact]
+    public void CanCheckFeatureThatDoesNotExist()
+    {
+        var result = _eppoClient.IsEnabled("random-feature-toggle");
+        
+        Assert.False(result);
+    }
 }

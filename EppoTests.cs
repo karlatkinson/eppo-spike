@@ -5,21 +5,21 @@ using Xunit.Abstractions;
 
 public class EppoTests
 {
-    private readonly Features _eppoClient;
+    private readonly EppoFeatures _eppoClient;
+    private readonly string _featureFlag;
 
     public EppoTests(ITestOutputHelper logger)
     {
         Env.TraversePath().Load();
+        _featureFlag = Env.GetString("EPPO_FEATURE_FLAG");
         var sdkKey = Env.GetString("EPPO_SDK_KEY");
-        _eppoClient = new Features(sdkKey, logger.ToLoggerFactory());
+        _eppoClient = new EppoFeatures(sdkKey, logger.ToLoggerFactory());
     }
     
     [Fact]
     public void CanCheckFeature()
     {
-        var featureFlag = Env.GetString("EPPO_FEATURE_FLAG");
-
-        var result = _eppoClient.IsEnabled(featureFlag);
+        var result = _eppoClient.IsEnabled(_featureFlag);
         
         Assert.True(result);
     }
